@@ -9,5 +9,33 @@ There is no automated test for this one, this is more for you to understand time
 */
 
 function calculateTime(n) {
-    return 0.01;
+  const startTime = new Date().getTime();
+
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+
+  const endTime = new Date().getTime();
+  const elapsedTime = endTime - startTime;
 }
+
+/*
+we can also use console.time() - this doesn't returns any variable 
+but we can surely check the runTime of our JS code with this.
+*/
+function calculateTime_alternate(n) {
+  console.time("time");
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+  console.timeEnd("time");
+}
+
+/*
+we generally do not use time if we just want to calc out timeline of the function as 
+time module takes computation time but console.time / timeEnd is the inbuilt functions
+*/
+
+// calculateTime_alternate(100)

@@ -5,7 +5,12 @@
 */
 
 function isAnagram(str1, str2) {
-
+  return sorted(str1) == sorted(str2) ? true : false;
 }
+function sorted(str) {
+  return str.toLowerCase().split("").sort().join("");
+}
+var result = isAnagram("SILENT", "LIsTEs");
+console.log(result);
 
 module.exports = isAnagram;

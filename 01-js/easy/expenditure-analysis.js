@@ -7,17 +7,17 @@
 
 function calculateTotalSpentByCategory(transactions) {
   let categoryObj = {};
-  for (itm of transactions) {
-    categoryObj[itm.category] =
-      (categoryObj[itm.category] ? parseInt(categoryObj[itm.category]) : 0) +
-      parseInt(itm.price);
-  }
   let final = [];
-  for (const ele in categoryObj) {
-    let res = {};
-    res["category"] = ele;
-    res["totalSpent"] = categoryObj[ele];
-    final.push(res);
+  for (item of transactions) {
+    categoryObj[item.category] =
+      (categoryObj[item.category] ? parseInt(categoryObj[item.category]) : 0) +
+      parseInt(item.price);
+  }
+  for (const element in categoryObj) {
+    let result = {};
+    result["category"] = element;
+    result["totalSpent"] = categoryObj[element];
+    final.push(result);
   }
   return final;
 }

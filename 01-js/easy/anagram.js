@@ -10,7 +10,5 @@ function isAnagram(str1, str2) {
 function sorted(str) {
   return str.toLowerCase().split("").sort().join("");
 }
-var result = isAnagram("SILENT", "LIsTEs");
-console.log(result);
 
 module.exports = isAnagram;

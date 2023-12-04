@@ -16,6 +16,76 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(number) {
+    this.result += number;
+  }
+
+  subtract(number) {
+    this.result -= number;
+  }
+
+  multiply(number) {
+    this.result *= number;
+  }
+
+  divide(number) {
+    if (number === 0) {
+      throw new Error("Cannot divide by zero");
+    }
+    this.result /= number;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+
+
+  calculate(expression) {
+    const value = expression.split(" ");
+
+    for (let i = 0; i < value.length; i += 2) {
+      const number = parseFloat(value[i]);
+      if (isNaN(number)) {
+        throw new Error("Invalid input");
+      }
+
+      if (i === 0) {
+        this.result = number;
+      } else {
+        const operator = value[i - 1];
+        this.performCalculation(operator, number);
+      }
+    }
+  }
+
+  performCalculation(operator, number) {
+    switch (operator) {
+      case "+":
+        this.add(number);
+        break;
+      case "-":
+        this.subtract(number);
+        break;
+      case "*":
+        this.multiply(number);
+        break;
+      case "/":
+        this.divide(number);
+        break;
+      default:
+        throw new Error("Invalid operator");
+    }
+  }
+}
 
 module.exports = Calculator;

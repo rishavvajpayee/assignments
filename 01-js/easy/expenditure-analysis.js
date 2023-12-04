@@ -9,16 +9,17 @@ function calculateTotalSpentByCategory(transactions) {
   let categoryObj = {};
   for (itm of transactions) {
     categoryObj[itm.category] =
-      (categoryObj[itm.category] ? parseInt(categoryObj[itm.category]) : 0) + parseInt(itm.price)
+      (categoryObj[itm.category] ? parseInt(categoryObj[itm.category]) : 0) +
+      parseInt(itm.price);
   }
   let final = [];
   for (const ele in categoryObj) {
     let res = {};
-    res["category"] = ele
-    res["totalSpent"] = categoryObj[ele]
+    res["category"] = ele;
+    res["totalSpent"] = categoryObj[ele];
     final.push(res);
   }
-  return final
+  return final;
 }
 
 module.exports = calculateTotalSpentByCategory;

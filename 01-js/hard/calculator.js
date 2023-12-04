@@ -48,8 +48,6 @@ class Calculator {
     return this.result;
   }
 
-
-
   calculate(expression) {
     const value = expression.split(" ");
 
